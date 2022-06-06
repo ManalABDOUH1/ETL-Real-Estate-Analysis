@@ -1,0 +1,28 @@
+<mat-toolbar>
+  <mat-toolbar-row class="justify-content-between">
+    <button mat-icon-button (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon> 
+      <!-- <div class="menutest">Home / Dashboard</div>   -->
+    </button>
+    
+    <div class="dropdown">
+      <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        
+          <img src="../../assets/avatar.jpg">
+        
+      </button>
+
+
+       <button class="not">
+        
+          <img src="../../assets/notification.png">
+        
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

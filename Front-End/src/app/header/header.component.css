@@ -1,0 +1,74 @@
+mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+
+button {
+    outline: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    float: right;
+
+}
+/* button div .menutest { 
+    margin-top: 54px;
+    width: 1px;
+} */
+
+
+button img{
+    width: 40px;
+}
+
+.not{
+    margin-top: 4px;
+    margin-right: 35px;
+}
+
+.not img{
+    width: 35px;
+}
+
+mat-toolbar {
+    background: #f7f7f7;
+}
+.user-image {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.user-image-icon {
+    height: 18px;
+    font-size: 16px;
+}
+::ng-deep .mat-menu-content {
+    width: 160px;
+}
+ul  li {
+      list-style: none;
+    
+}
+  button {
+    outline: none;
+    border: 0;
+    background: transparent;
+  }
+  .user {
+    font-size: 14px;
+  }
+mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+
+
+
+  
+
+ 
