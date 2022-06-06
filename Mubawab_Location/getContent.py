@@ -1,0 +1,75 @@
+
+from bs4 import BeautifulSoup as bs
+import requests
+import pandas as pd
+
+
+URL = "https://www.mubawab.ma/fr/a/7382012/tr%C3%A8s-bel-appartement-en-location-%C3%A0-ain-diab-superficie-163-m%C2%B2-porte-blind%C3%A9e-et-chauffage-central"
+l = list()
+caractere = list()
+pictures = list ()
+
+html_text = requests.get(URL + "#catalog-listing").content
+
+soup = bs(html_text,'html.parser')
+
+content = soup.find('div', class_='bottomContainer')
+
+photos = content.find_all('div', class_='bottomPicture')
+
+for photo in photos:
+    try:
+        picture = photo.find('img').attrs['src']
+    except :
+        picture = 'not defined'
+    pictures.append(picture)
+
+content2 = soup.find('section', class_='propPage')
+
+#title = content2.find('h1', class_='searchTitle').text
+# price = content2.find('h3', class_='orangeTit').text
+# ville = content2.find('h3', class_='greyTit').text
+#pieces = content2.find('div', class_='catNav').text
+#description = content2.find('div', class_='blockProp').find('p').text
+caracteres = content2.find_all('li', class_='col-2 floatR fSize14')
+
+for carac in caracteres:
+    try:
+        caract = carac.find('span',class_='characIconText centered').text
+    except :
+        caractere = 'not defined'
+    caractere.append(caract)
+
+try :
+    title = content2.find('h1', class_='searchTitle').text 
+except:
+    title = 'not defined'
+try:
+    price = content2.find('h3', class_='orangeTit').text
+except:
+    price = 'not defined'
+
+try :
+    ville = content2.find('h3', class_='greyTit').text
+except:
+    ville = 'not defined'
+
+try :
+    pieces = content2.find('div', class_='catNav').text
+except:
+    pieces = 'not defined'
+
+try :
+    description = content2.find('div', class_='blockProp').find('p').text
+except:
+    description = 'not defined'
+content3 = content2.find('aside', class_='asideR col-4')
+try:
+    tel=content3.find('span',id='phoneBtnClosed').text
+except:
+    tel = 'not defined'
+
+data = {"Title":title, "Location":ville, "Price":price, "Caractéristiques":caractere,"Mobilier":pieces,"Description":description,"Pictures":pictures,'Télephone':tel}
+
+l.append(data)
+
